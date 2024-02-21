@@ -1,7 +1,8 @@
-FROM debian:buster
+FROM debian:bookworm
 
 RUN apt-get update -yy && \
     apt-get install -yy \
+        pulseaudio \
         pkg-config \ 
         avahi-daemon \
         avahi-discover \
@@ -13,13 +14,13 @@ RUN apt-get update -yy && \
         python3-pyaudio \
         libffi-dev \
         alsa-utils \
-	libavformat-dev \
-	libavcodec-dev \
-	libavdevice-dev \
-	libavutil-dev \
-	libavfilter-dev \
-	libswscale-dev \
-	libswresample-dev \
+	    libavformat-dev \
+	    libavcodec-dev \
+	    libavdevice-dev \
+	    libavutil-dev \
+	    libavfilter-dev \
+	    libswscale-dev \
+	    libswresample-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /airplay2/requirements.txt
